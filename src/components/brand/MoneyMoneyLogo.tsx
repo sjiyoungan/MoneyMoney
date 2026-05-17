@@ -20,7 +20,7 @@ export function MoneyMoneyLogo({ className }: MoneyMoneyLogoProps) {
         fill="#3E5C45"
         fontFamily="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
         fontSize="26"
-        fontWeight="500"
+        fontWeight="600"
         letterSpacing="-0.02em"
       >
         MoneyMoney
