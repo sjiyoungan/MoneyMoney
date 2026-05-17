@@ -140,7 +140,7 @@
 
   /* Dark green + burnt orange; linear top→bottom, smile radial at bottom */
   .auth-gradient {
-    background-color: #0f1612;
+    background-color: #0a0e0c;
     background-image:
       radial-gradient(
         125% 52% at 50% 112%,
@@ -161,8 +161,9 @@
       ),
       linear-gradient(
         180deg,
-        #0c1210 0%,
-        #15221c 14%,
+        #060908 0%,
+        #0c1410 10%,
+        #15221c 20%,
         #1f3329 30%,
         #2f4a3c 44%,
         #3e5c45 54%,

@@ -10,7 +10,7 @@ import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
 type AuthMode = 'sign-in' | 'sign-up'
 
 const fieldClassName =
-  'h-11 border-foreground/30 text-base md:text-base'
+  'h-11 border-foreground/30 bg-background/95 text-base md:text-base'
 
 export function AuthPage() {
   const [mode, setMode] = useState<AuthMode>('sign-in')
@@ -84,8 +84,8 @@ export function AuthPage() {
   return (
     <div className="text-foreground relative min-h-svh">
       <AuthBackground />
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-lg items-center px-4 py-8 sm:py-12">
-        <Card className="w-full gap-0 bg-card/95 p-6 shadow-lg ring-1 ring-foreground/10 backdrop-blur-sm">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[412px] items-center px-4 py-8 sm:py-12">
+        <Card className="w-full gap-0 border border-white/15 bg-card/85 p-6 shadow-lg ring-1 ring-foreground/10 backdrop-blur-md backdrop-saturate-150 [@media(prefers-reduced-transparency:reduce)]:bg-card [@media(prefers-reduced-transparency:reduce)]:backdrop-blur-none">
           <form
             onSubmit={handleSubmit}
             className="flex w-full flex-col items-stretch text-left"
