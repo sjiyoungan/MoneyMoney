@@ -87,11 +87,7 @@ export function AuthPage() {
             onSubmit={handleSubmit}
             className="flex w-full flex-col items-start text-left"
           >
-            <MoneyMoneyLogo className="h-6 w-auto" />
-
-            <h2 className="mt-6 text-xl font-medium sm:text-2xl">
-              {isSignUp ? 'Create account' : 'Log in'}
-            </h2>
+            <MoneyMoneyLogo className="mx-auto h-8 w-auto" />
 
             <div className="mt-6 grid w-full gap-4">
               <Input
@@ -145,7 +141,7 @@ export function AuthPage() {
                   : 'Log in'}
             </Button>
 
-            <p className="mt-4 w-full text-left">
+            <p className="mt-4 w-full text-center">
               {isSignUp ? (
                 <button
                   type="button"
