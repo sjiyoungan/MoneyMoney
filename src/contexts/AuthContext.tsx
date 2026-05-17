@@ -9,7 +9,7 @@ import {
 } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
 
-import { isSupabaseConfigured, supabase } from '@/lib/supabase'
+import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
 
 type AuthContextValue = {
   user: User | null
@@ -32,11 +32,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     let mounted = true
 
-    supabase.auth.getSession().then(({ data }) => {
-      if (!mounted) return
-      setSession(data.session)
-      setLoading(false)
-    })
+    const supabase = getSupabase()
+
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        if (!mounted) return
+        setSession(data.session)
+        setLoading(false)
+      })
+      .catch(() => {
+        if (!mounted) return
+        setLoading(false)
+      })
 
     const {
       data: { subscription },
@@ -52,7 +60,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const signOut = useCallback(async () => {
-    await supabase.auth.signOut()
+    if (!isSupabaseConfigured) return
+    await getSupabase().auth.signOut()
   }, [])
 
   const value = useMemo(

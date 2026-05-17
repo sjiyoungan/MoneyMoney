@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { isSupabaseConfigured, supabase } from '@/lib/supabase'
+import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
 
 type AuthMode = 'sign-in' | 'sign-up'
 
@@ -42,6 +42,8 @@ export function AuthPage() {
     }
 
     setLoading(true)
+
+    const supabase = getSupabase()
 
     if (mode === 'sign-up') {
       const { data, error: signUpError } = await supabase.auth.signUp({
