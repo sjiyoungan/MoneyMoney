@@ -87,9 +87,11 @@ export function AuthPage() {
         <Card className="w-full gap-0 bg-card/95 p-6 shadow-lg ring-1 ring-foreground/10 backdrop-blur-sm">
           <form
             onSubmit={handleSubmit}
-            className="flex w-full flex-col items-start text-left"
+            className="flex w-full flex-col items-stretch text-left"
           >
-            <MoneyMoneyLogo className="mx-auto h-8 w-auto" />
+            <div className="flex w-full justify-center">
+              <MoneyMoneyLogo />
+            </div>
 
             <div className="mt-6 grid w-full gap-4">
               <Input

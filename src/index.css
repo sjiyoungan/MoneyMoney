@@ -138,6 +138,10 @@
     font-weight: 700;
   }
 
+  .text-logo {
+    font-size: 2rem;
+  }
+
   /* Dark green + burnt orange; linear top→bottom, smile radial at bottom */
   .auth-gradient {
     background-color: #0f1612;
