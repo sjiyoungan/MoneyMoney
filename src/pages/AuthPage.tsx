@@ -94,7 +94,7 @@ export function AuthPage() {
               <MoneyMoneyLogo />
             </div>
 
-            <div className="mt-8 grid w-full gap-4">
+            <div className="mt-8 grid w-full gap-2">
               <Input
                 id="email"
                 type="email"
