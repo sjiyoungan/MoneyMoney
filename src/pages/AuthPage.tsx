@@ -4,10 +4,11 @@ import { MoneyMoneyLogo } from '@/components/brand/MoneyMoneyLogo'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
 
 type AuthMode = 'sign-in' | 'sign-up'
+
+const fieldClassName = 'h-11 text-base md:text-base'
 
 export function AuthPage() {
   const [mode, setMode] = useState<AuthMode>('sign-in')
@@ -58,7 +59,7 @@ export function AuthPage() {
       }
 
       setMessage(
-        'Account created. Check your email to confirm your address, then sign in.',
+        'Account created. Check your email to confirm your address, then log in.',
       )
       setMode('sign-in')
       return
@@ -88,39 +89,38 @@ export function AuthPage() {
           >
             <MoneyMoneyLogo className="h-6 w-auto" />
 
-            <h2 className="mt-10 text-xl font-medium sm:text-2xl">
-              {isSignUp ? 'Create account' : 'Sign in'}
+            <h2 className="mt-6 text-xl font-medium sm:text-2xl">
+              {isSignUp ? 'Create account' : 'Log in'}
             </h2>
 
             <div className="mt-6 grid w-full gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  disabled={loading}
-                />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  autoComplete={
-                    isSignUp ? 'new-password' : 'current-password'
-                  }
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  minLength={6}
-                  disabled={loading}
-                />
-              </div>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Email"
+                aria-label="Email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={loading}
+                className={fieldClassName}
+              />
+              <Input
+                id="password"
+                type="password"
+                placeholder="Password"
+                aria-label="Password"
+                autoComplete={
+                  isSignUp ? 'new-password' : 'current-password'
+                }
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
+                disabled={loading}
+                className={fieldClassName}
+              />
               {error ? (
                 <p className="text-destructive text-sm" role="alert">
                   {error}
@@ -135,14 +135,14 @@ export function AuthPage() {
 
             <Button
               type="submit"
-              className="mt-6 w-full"
+              className="mt-6 h-11 w-full text-base"
               disabled={loading}
             >
               {loading
                 ? 'Please wait…'
                 : isSignUp
                   ? 'Create account'
-                  : 'Continue'}
+                  : 'Log in'}
             </Button>
 
             <p className="mt-4 w-full text-left">
@@ -153,7 +153,7 @@ export function AuthPage() {
                   onClick={() => switchMode('sign-in')}
                   disabled={loading}
                 >
-                  Already have an account? Sign in
+                  Already have an account? Log in
                 </button>
               ) : (
                 <button
