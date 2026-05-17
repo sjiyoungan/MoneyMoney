@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 
+import { AuthBackground } from '@/components/auth/AuthBackground'
 import { MoneyMoneyLogo } from '@/components/brand/MoneyMoneyLogo'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -80,9 +81,10 @@ export function AuthPage() {
   const isSignUp = mode === 'sign-up'
 
   return (
-    <div className="bg-background text-foreground min-h-svh">
-      <div className="mx-auto flex min-h-svh w-full max-w-lg items-center px-4 py-8 sm:py-12">
-        <Card className="w-full gap-0 p-6 ring-1 ring-foreground/10">
+    <div className="text-foreground relative min-h-svh">
+      <AuthBackground />
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-lg items-center px-4 py-8 sm:py-12">
+        <Card className="w-full gap-0 bg-card/95 p-6 shadow-lg ring-1 ring-foreground/10 backdrop-blur-sm">
           <form
             onSubmit={handleSubmit}
             className="flex w-full flex-col items-start text-left"
