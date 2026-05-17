@@ -9,7 +9,8 @@ import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
 
 type AuthMode = 'sign-in' | 'sign-up'
 
-const fieldClassName = 'h-11 text-base md:text-base'
+const fieldClassName =
+  'h-11 border-foreground/30 text-base md:text-base'
 
 export function AuthPage() {
   const [mode, setMode] = useState<AuthMode>('sign-in')
@@ -93,7 +94,7 @@ export function AuthPage() {
               <MoneyMoneyLogo />
             </div>
 
-            <div className="mt-6 grid w-full gap-4">
+            <div className="mt-8 grid w-full gap-4">
               <Input
                 id="email"
                 type="email"
