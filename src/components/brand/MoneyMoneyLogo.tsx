@@ -10,7 +10,7 @@ export function MoneyMoneyLogo({ className }: MoneyMoneyLogoProps) {
       role="img"
       aria-label="MoneyMoney"
       className={cn(
-        'font-logo text-logo block leading-none tracking-[-0.02em] text-[#3E5C45]',
+        'font-logo inline-flex h-8 items-center text-[26px] leading-none tracking-[-0.02em] text-[#3E5C45]',
         className,
       )}
     >
