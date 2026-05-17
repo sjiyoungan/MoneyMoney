@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 28" fill="none" role="img" aria-label="MoneyMoney">
-  <text
-    x="0"
-    y="22"
-    fill="#3E5C45"
-    font-family="'Cormorant Garamond', 'Times New Roman', Georgia, serif"
-    font-size="26"
-    font-weight="600"
-    letter-spacing="-0.02em"
-  >MoneyMoney</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" fill="none" role="img" aria-label="MoneyMoney">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&amp;display=swap");
+      .wordmark {
+        font: 700 26px "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        fill: #3e5c45;
+        stroke: #3e5c45;
+        stroke-width: 0.75px;
+        paint-order: stroke fill;
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </defs>
+  <text class="wordmark" x="0" y="24">MoneyMoney</text>
 </svg>

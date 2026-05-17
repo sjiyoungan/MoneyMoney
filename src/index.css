@@ -3,7 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/bricolage-grotesque";
-@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/cormorant-garamond/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,4 +130,11 @@
   html {
     @apply font-sans;
     }
+}
+
+@layer utilities {
+  .font-logo {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+  }
 }
