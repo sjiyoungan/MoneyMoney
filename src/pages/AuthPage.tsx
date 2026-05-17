@@ -1,5 +1,4 @@
 import { useState, type FormEvent } from 'react'
-import { Wallet } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -87,17 +86,18 @@ export function AuthPage() {
   return (
     <div className="bg-background text-foreground min-h-svh">
       <div className="mx-auto flex min-h-svh w-full max-w-lg flex-col justify-center gap-6 px-4 py-8 sm:gap-8 sm:py-12">
-        <header className="flex flex-col items-center gap-3 text-center">
-          <div className="bg-primary text-primary-foreground flex size-14 items-center justify-center rounded-2xl shadow-sm">
-            <Wallet className="size-7" aria-hidden />
-          </div>
-          <h1 className="text-3xl font-semibold tracking-tight">MoneyMoney</h1>
+        <header className="text-center">
+          <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            MoneyMoney
+          </h1>
         </header>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Card>
-            <CardHeader>
-              <CardTitle>{isSignUp ? 'Create account' : 'Sign in'}</CardTitle>
+            <CardHeader className="flex flex-col items-center text-center">
+              <CardTitle className="w-full text-center text-xl font-medium sm:text-2xl">
+                {isSignUp ? 'Create account' : 'Sign in'}
+              </CardTitle>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
