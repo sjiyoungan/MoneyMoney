@@ -85,7 +85,7 @@ export function AuthPage() {
     <div className="text-foreground relative min-h-svh">
       <AuthBackground />
       <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[412px] items-center px-4 py-8 sm:py-12">
-        <Card className="w-full gap-0 bg-card p-6 shadow-lg ring-1 ring-foreground/10">
+        <Card className="w-full gap-0 bg-card p-6 shadow-[0_4px_20px_rgba(10,22,18,0.5),0_14px_44px_rgba(8,18,14,0.4)] ring-1 ring-foreground/10">
           <form
             onSubmit={handleSubmit}
             className="flex w-full flex-col items-stretch text-left"
