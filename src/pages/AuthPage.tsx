@@ -1,13 +1,8 @@
 import { useState, type FormEvent } from 'react'
 
+import { MoneyMoneyLogo } from '@/components/brand/MoneyMoneyLogo'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
@@ -85,21 +80,19 @@ export function AuthPage() {
 
   return (
     <div className="bg-background text-foreground min-h-svh">
-      <div className="mx-auto flex min-h-svh w-full max-w-lg flex-col justify-center gap-6 px-4 py-8 sm:gap-8 sm:py-12">
-        <header className="text-center">
-          <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            MoneyMoney
-          </h1>
-        </header>
+      <div className="mx-auto flex min-h-svh w-full max-w-lg items-center px-4 py-8 sm:py-12">
+        <Card className="w-full gap-0 p-6 ring-1 ring-foreground/10">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-full flex-col items-start text-left"
+          >
+            <MoneyMoneyLogo className="h-6 w-auto" />
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <Card>
-            <CardHeader className="flex flex-col items-center text-center">
-              <CardTitle className="w-full text-center text-xl font-medium sm:text-2xl">
-                {isSignUp ? 'Create account' : 'Sign in'}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
+            <h2 className="mt-10 text-xl font-medium sm:text-2xl">
+              {isSignUp ? 'Create account' : 'Sign in'}
+            </h2>
+
+            <div className="mt-6 grid w-full gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -138,40 +131,43 @@ export function AuthPage() {
                   {message}
                 </p>
               ) : null}
-            </CardContent>
-            <CardFooter>
-              <Button type="submit" className="w-full" disabled={loading}>
-                {loading
-                  ? 'Please wait…'
-                  : isSignUp
-                    ? 'Create account'
-                    : 'Continue'}
-              </Button>
-            </CardFooter>
-          </Card>
+            </div>
 
-          <p className="text-center">
-            {isSignUp ? (
-              <button
-                type="button"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors disabled:opacity-50"
-                onClick={() => switchMode('sign-in')}
-                disabled={loading}
-              >
-                Already have an account? Sign in
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors disabled:opacity-50"
-                onClick={() => switchMode('sign-up')}
-                disabled={loading}
-              >
-                Create account
-              </button>
-            )}
-          </p>
-        </form>
+            <Button
+              type="submit"
+              className="mt-6 w-full"
+              disabled={loading}
+            >
+              {loading
+                ? 'Please wait…'
+                : isSignUp
+                  ? 'Create account'
+                  : 'Continue'}
+            </Button>
+
+            <p className="mt-4 w-full text-left">
+              {isSignUp ? (
+                <button
+                  type="button"
+                  className="text-muted-foreground hover:text-foreground text-sm transition-colors disabled:opacity-50"
+                  onClick={() => switchMode('sign-in')}
+                  disabled={loading}
+                >
+                  Already have an account? Sign in
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="text-muted-foreground hover:text-foreground text-sm transition-colors disabled:opacity-50"
+                  onClick={() => switchMode('sign-up')}
+                  disabled={loading}
+                >
+                  Create account
+                </button>
+              )}
+            </p>
+          </form>
+        </Card>
       </div>
     </div>
   )
